@@ -1,0 +1,38 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <p>Estas buscando: <strong>{{query}}</strong></p>
+
+    {% if califas %}
+    <p>Calificaciones encontradas: {{califas|length}} calificaciones</p>
+    <ul>
+        
+        <table style="width: 80%; text-align: center;">
+            <tr>
+                <th>alumno</th>
+                <th>Unidad 1</th>
+                <th>Unidad 2</th>
+                <th>Unidad 3</th>
+                <th>Promedio</th>
+            </tr>
+            {% for califa in califas %}
+            <tr>
+                <td>{{califa.alumno}}</td>
+                <td>{{califa.cal1}}</td>
+                <td>{{califa.cal2}}</td>
+                <td>{{califa.cal3}}</td>
+                <td>{{ califa.prom|floatformat:2 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        
+    </ul>
+    {% else %}
+    <p>No hay califas</p>
+    {% endif %}
+</body>
+
+</html>
